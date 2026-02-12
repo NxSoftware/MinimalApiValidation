@@ -1,0 +1,46 @@
+@MinimalApiValidation_HostAddress = http://localhost:5047
+
+### Create User - Valid
+POST {{MinimalApiValidation_HostAddress}}/users/
+Content-Type: application/json
+
+{
+    "name": "John Doe"
+}
+
+### Create User - Missing Name
+POST {{MinimalApiValidation_HostAddress}}/users/
+Content-Type: application/json
+
+{
+}
+
+### Update User - Valid
+PUT {{MinimalApiValidation_HostAddress}}/users/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### User User - Missing Name
+PUT {{MinimalApiValidation_HostAddress}}/users/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+}
+
+### Update User (As Parameters) - Valid
+PUT {{MinimalApiValidation_HostAddress}}/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### User User (As Parameters) - Missing Name
+PUT {{MinimalApiValidation_HostAddress}}/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+}
