@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MinimalApiValidation.ImmediateEndpoints;
 
+public sealed class ImmediateRequestBody
+{
+    [Required]
+    [MinLength(3)]
+    public string Name { get; init; }
+}
+
 public sealed class ImmediateUpdateUserRequestAsParameters
 {
-    public sealed class ImmediateRequestBody
-    {
-        [Required]
-        [MinLength(3)]
-        public string Name { get; init; }
-    }
-
     [FromRoute]
     public Guid UserId { get; init; }
         

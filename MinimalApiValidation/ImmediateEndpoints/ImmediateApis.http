@@ -1,0 +1,83 @@
+@MinimalApiValidation_HostAddress = http://localhost:5047
+
+### Create User - Valid
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+> {%
+    client.test('Valid name results in 200 OK', function() {
+        client.assert(response.status === 200, 'Expected status code 200, but got ' + response.status);
+    })
+%}
+
+### Create User - Missing Name
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
+Content-Type: application/json
+
+{
+}
+
+> {%
+    client.test('Missing name results in 400 Bad Request', function() {
+        client.assert(response.status === 400, 'Expected status code 400, but got ' + response.status);
+    })
+%}
+
+### Create User - Short Name
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
+Content-Type: application/json
+
+{
+  "name": "Jo"
+}
+
+> {%
+    client.test('Short name results in 400 Bad Request', function() {
+        client.assert(response.status === 400, 'Expected status code 400, but got ' + response.status);
+    })
+%}
+
+### Update User (As Parameters) - Valid
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+> {%
+    client.test('Valid name results in 200 OK', function() {
+        client.assert(response.status === 200, 'Expected status code 200, but got ' + response.status);
+    })
+%}
+
+### Update User (As Parameters) - Missing Name
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+}
+
+> {%
+    client.test('Missing name results in 400 Bad Request', function() {
+        client.assert(response.status === 400, 'Expected status code 400, but got ' + response.status);
+    })
+%}
+
+### Update User (As Parameters) - Short Name
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+  "name": "Jo"
+}
+
+> {%
+    client.test('Short name results in 400 Bad Request', function() {
+        client.assert(response.status === 400, 'Expected status code 400, but got ' + response.status);
+    })
+%}
