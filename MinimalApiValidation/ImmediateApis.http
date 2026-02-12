@@ -1,7 +1,7 @@
 @MinimalApiValidation_HostAddress = http://localhost:5047
 
 ### Create User - Valid
-POST {{MinimalApiValidation_HostAddress}}/immediate/users/
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
 Content-Type: application/json
 
 {
@@ -9,23 +9,39 @@ Content-Type: application/json
 }
 
 ### Create User - Missing Name
-POST {{MinimalApiValidation_HostAddress}}/immediate/users/
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
 Content-Type: application/json
 
 {
 }
 
+### Create User - Short Name
+POST {{MinimalApiValidation_HostAddress}}/ia/users/
+Content-Type: application/json
+
+{
+  "name": "Jo"
+}
+
 ### Update User (As Parameters) - Valid
-PUT {{MinimalApiValidation_HostAddress}}/immediate/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
 Content-Type: application/json
 
 {
   "name": "John Doe"
 }
 
-### User User (As Parameters) - Missing Name
-PUT {{MinimalApiValidation_HostAddress}}/immediate/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+### Update User (As Parameters) - Missing Name
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
 Content-Type: application/json
 
 {
+}
+
+### Update User (As Parameters) - Short Name
+PUT {{MinimalApiValidation_HostAddress}}/ia/users/asparams/C547DEF2-56FD-4910-9C2E-6D507F66697A
+Content-Type: application/json
+
+{
+  "name": "Jo"
 }

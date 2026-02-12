@@ -13,16 +13,14 @@ public sealed class ImmediateCreateUserRequest
 }
 
 [Handler]
-[MapPost("/immediate/users")]
+[MapPost("/ia/users")]
 public sealed partial class CreateUserEndpoint
 {
+    internal static void CustomizeEndpoint(RouteHandlerBuilder endpoint) => endpoint
+        .WithTags("Immediate.Apis");
+
     private ValueTask<Ok> HandleAsync(ImmediateCreateUserRequest request, CancellationToken cancellationToken)
     {
         return new ValueTask<Ok>(TypedResults.Ok());
     }
-
-
-    // app.MapPost("/users", (CreateUserRequest request) => TypedResults.Ok());
-    // app.MapPut("/users/{userId:guid}", (Guid userId, UpdateUserRequest request) => TypedResults.Ok());
-    // app.MapPut("/users/asparams/{userId:guid}", ([AsParameters] UpdateUserRequestAsParameters request) => TypedResults.Ok());
 }

@@ -9,6 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Immediate.Apis" Version="4.0.0" />
         <PackageReference Include="Immediate.Handlers" Version="3.2.0" />
+        <PackageReference Include="Immediate.Validations" Version="3.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2"/>
         <PackageReference Include="Scalar.AspNetCore" Version="2.12.38" />
     </ItemGroup>

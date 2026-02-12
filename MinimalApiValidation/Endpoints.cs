@@ -42,7 +42,8 @@ public static class Endpoints
             CancellationToken cancellationToken) =>
         {
             return TypedResults.Ok();
-        });
+        })
+        .WithTags("Minimal APIs");
         
         app.MapPut("/users/{userId:guid}", (
             [FromRoute] Guid userId,
@@ -50,13 +51,15 @@ public static class Endpoints
             CancellationToken cancellationToken) =>
         {
             return TypedResults.Ok();
-        });
+        })
+        .WithTags("Minimal APIs");
         
         app.MapPut("/users/asparams/{userId:guid}", (
             [AsParameters] UpdateUserRequestAsParameters request,
             CancellationToken cancellationToken) =>
         {
             return TypedResults.Ok();
-        });
+        })
+        .WithTags("Minimal APIs");
     }
 }

@@ -23,9 +23,12 @@ public sealed class ImmediateUpdateUserRequestAsParameters
 }
 
 [Handler]
-[MapPut("/immediate/users/asparams/{userId:guid}")]
+[MapPut("/ia/users/asparams/{userId:guid}")]
 public sealed partial class UpdateUserEndpointAsParameters
 {
+    internal static void CustomizeEndpoint(RouteHandlerBuilder endpoint) => endpoint
+        .WithTags("Immediate.Apis");
+
     private ValueTask<Ok> HandleAsync([AsParameters] ImmediateUpdateUserRequestAsParameters request, CancellationToken token)
     {
         return new ValueTask<Ok>(TypedResults.Ok());
